@@ -35,20 +35,23 @@ Provide instructions on how to set up the development environment. For example:
    cd movie-app
    ```
 
-API Endpoints
+## API Endpoints
+
 User Endpoints:
 
-GET /users: Get a list of all users (requires authentication)
-GET /users/:Username: Get user information by username (requires authentication)
-PUT /users/:Username: Update user information (requires authentication)
-DELETE /users/:Username: Delete a user account (requires authentication)
+- GET /users: Get a list of all users (requires authentication)
+- GET /users/:Username: Get user information by username (requires authentication)
+- PUT /users/:Username: Update user information (requires authentication)
+- DELETE /users/:Username: Delete a user account (requires authentication)
+
 Movie Endpoints:
 
-GET /movies: Get a list of all movies (requires authentication)
-GET /movies/:Title: Get movie details by title (requires authentication)
-GET /movies/genres/:genreName: Get movies by genre (requires authentication)
-GET /movies/directors/:directorName: Get movies by director (requires authentication)
+- GET /movies: Get a list of all movies (requires authentication)
+- GET /movies/:Title: Get movie details by title (requires authentication)
+- GET /movies/genres/:genreName: Get movies by genre (requires authentication)
+- GET /movies/directors/:directorName: Get movies by director (requires authentication)
+
 Favorite Movies Endpoints:
 
-POST /users/:Username/movies/:MovieID: Add a movie to a user's list of favorites (requires authentication)
-DELETE /users/:Username/movies/:MovieID: Remove a movie from a user's list of favorites (requires authentication)
+- POST /users/:Username/movies/:MovieID: Add a movie to a user's list of favorites (requires authentication)
+- DELETE /users/:Username/movies/:MovieID: Remove a movie from a user's list of favorites (requires authentication)
