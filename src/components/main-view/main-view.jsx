@@ -1,4 +1,4 @@
-import { useState, useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
 
