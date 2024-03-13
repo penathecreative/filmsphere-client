@@ -5849,10 +5849,10 @@ const MainView = ()=>{
             console.log("Movies data:", data);
             const moviesFromApi = data.map((movie)=>{
                 return {
-                    _id: movie.key,
-                    title: movie.Title,
-                    genre: movie.Genre.Name,
-                    description: movie.Description
+                    _id: movie._id,
+                    Title: movie.Title,
+                    Genre: movie.Genre.Name,
+                    Description: movie.Description
                 };
             });
             setMovies(moviesFromApi);
@@ -5881,7 +5881,7 @@ const MainView = ()=>{
                 onMovieClick: (newSelectedMovie)=>{
                     setSelectedMovie(newSelectedMovie);
                 }
-            }, movie.id, false, {
+            }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 44,
                 columnNumber: 9
