@@ -5947,7 +5947,7 @@ const MainView = ()=>{
                             lineNumber: 71,
                             columnNumber: 15
                         }, undefined)
-                    }, book.id, false, {
+                    }, movie._id, false, {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 67,
                         columnNumber: 13
