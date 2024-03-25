@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
 
-  const movie = movies.find((m) => m._id === movieId);
+  const movie = movies.find((b) => b._id === movieId);
   return (
     <div>
       {/*<div>
