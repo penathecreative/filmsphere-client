@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import "./movie-view.scss";
 
 import PropTypes from "prop-types";
 
@@ -40,15 +41,17 @@ export const MovieView = ({ movies }) => {
 };
 
 MovieView.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }),
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }),
-    Featured: PropTypes.bool.isRequired,
-  }).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      Title: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      Genre: PropTypes.string.isRequired,
+      Director: PropTypes.arrayOf(
+        PropTypes.shape({
+          Name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    })
+  ).isRequired,
 };

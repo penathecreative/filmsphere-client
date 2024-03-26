@@ -3,6 +3,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../singup-view/singup-view";
+import ProfileView from "../profile-view/profile-view"; // Import ProfileView component
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -99,8 +101,23 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movie={movies} />
+                    <MovieView movies={movies} />
                   </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                {user ? (
+                  <ProfileView />
+                ) : (
+                  <Navigate
+                    to="/login"
+                    replace
+                  />
                 )}
               </>
             }
