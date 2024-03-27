@@ -44,7 +44,7 @@ const ProfileView = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://filmsphere-5e594b2ffc50.herokuapp.com/users/",
+        `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}`,
         {
           method: "PUT",
           headers: {
@@ -70,7 +70,7 @@ const ProfileView = () => {
   const confirmDeregister = async () => {
     try {
       const response = await fetch(
-        "https://filmsphere-5e594b2ffc50.herokuapp.com/users/",
+        `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}`,
         {
           method: "DELETE",
           headers: {

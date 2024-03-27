@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-const ProfileFavoritesView = ({ user, token }) => {
+const ProfileFavoritesView = () => {
+  const user = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [movies, setMovies] = useState([]);
 
@@ -22,7 +24,7 @@ const ProfileFavoritesView = ({ user, token }) => {
           throw new Error("Failed to fetch favorite movies");
         }
         const favoriteMoviesData = await favoriteMoviesResponse.json();
-        setFavoriteMovies(favoriteMoviesData.FavoriteMovies || []);
+        setFavoriteMovies(favoriteMoviesData?.FavoriteMovies || []);
 
         // Fetch all movies
         const moviesResponse = await fetch(

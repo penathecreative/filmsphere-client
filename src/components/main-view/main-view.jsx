@@ -112,7 +112,7 @@ export const MainView = () => {
             element={
               <>
                 {user ? (
-                  <ProfileView />
+                  <ProfileView token={token} />
                 ) : (
                   <Navigate
                     to="/login"
