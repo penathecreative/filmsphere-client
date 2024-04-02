@@ -35,6 +35,7 @@ export const MainView = () => {
             Genre: movie.Genre.Name,
             Description: movie.Description,
             Director: movie.Director.Name,
+            image: movie.ImagePath,
           };
         });
         setMovies(moviesFromApi);

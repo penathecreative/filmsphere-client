@@ -28,7 +28,7 @@ MovieCard.propTypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string,
     }).isRequired,
-    image: PropTypes.string, // image will be added on next Ex
+    ImagePath: PropTypes.string.isRequired, // Use ImagePath for the image URL
   }).isRequired,
 };
 

@@ -12,13 +12,13 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((b) => b._id === movieId);
   return (
     <div>
-      {/*<div>
+      <div>
         <img
-          src={movie.ImagePath}
+          src={movie.image}
           alt="movie image"
           style={{ width: "300px", height: "450px" }}
         />
-  </div>*/}
+      </div>
       <div>
         <span>Title: </span>
         <span>{movie.Title || "No Title"}</span>
@@ -52,6 +52,7 @@ MovieView.propTypes = {
       Director: PropTypes.shape({
         Name: PropTypes.string,
       }),
+      image: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
