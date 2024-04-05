@@ -1,16 +1,50 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import "./navigation-bar.scss";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({
+  user,
+  onLoggedOut,
+  setFilteredMovies,
+  movies,
+}) => {
+  // Make sure to receive the movies prop here
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleInputChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    filterMovies(query); // Remove the second argument here
+  };
+
+  const filterMovies = (query) => {
+    console.log("Query:", query); // Log the search query
+
+    if (!query) {
+      setFilteredMovies([]); // Clear filtered movies when query is empty
+      return;
+    }
+
+    const filtered = movies.filter((movie) =>
+      movie.Title.toLowerCase().includes(query.toLowerCase())
+    );
+    console.log("Filtered Movies:", filtered); // Log the filtered movies
+    setFilteredMovies(filtered);
+  };
+
   return (
     <Navbar
-      bg="light"
+      bg="primary"
+      variant="dark"
       expand="lg"
+      className="NavbarStyle"
     >
       <Container>
         <Navbar.Brand
           as={Link}
           to="/"
+          className="navbar-text"
         >
           Filmsphere
         </Navbar.Brand>
@@ -50,6 +84,19 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               </>
             )}
           </Nav>
+          {user && (
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                value={searchQuery}
+                onChange={handleInputChange}
+              />
+              <Button variant="outline-light">Search</Button>
+            </Form>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

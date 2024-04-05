@@ -16,7 +16,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [filteredMovies, setFilteredMovies] = useState([]); // State for filtered movies
 
   useEffect(() => {
     if (!token) {
@@ -52,6 +52,8 @@ export const MainView = () => {
         onLoggedOut={() => {
           setUser(null);
         }}
+        setFilteredMovies={setFilteredMovies}
+        movies={movies}
       />
 
       <Row className="justify-content-md-center">
@@ -136,15 +138,27 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    {movies.map((movie) => (
-                      <Col
-                        className="mb-4"
-                        key={movie._id}
-                        md={3}
-                      >
-                        <MovieCard movie={movie} />
-                      </Col>
-                    ))}
+                    {filteredMovies.length > 0
+                      ? // Render filtered movies if there are any
+                        filteredMovies.map((movie) => (
+                          <Col
+                            className="mb-4"
+                            key={movie._id}
+                            md={3}
+                          >
+                            <MovieCard movie={movie} />
+                          </Col>
+                        ))
+                      : // Render all movies if no filtering is applied
+                        movies.map((movie) => (
+                          <Col
+                            className="mb-4"
+                            key={movie._id}
+                            md={3}
+                          >
+                            <MovieCard movie={movie} />
+                          </Col>
+                        ))}
                   </>
                 )}
               </>
