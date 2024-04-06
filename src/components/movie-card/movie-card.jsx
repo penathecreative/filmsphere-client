@@ -15,10 +15,10 @@ export const MovieCard = ({ movie }) => {
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Director}</Card.Text>
         <Link
-          className="link-card"
           to={`/movies/${encodeURIComponent(movie._id)}`}
+          style={{ textDecoration: "none" }}
         >
-          <Button variant="link">Open</Button>
+          <Button variant="link">See more</Button>
         </Link>
       </Card.Body>
     </Card>

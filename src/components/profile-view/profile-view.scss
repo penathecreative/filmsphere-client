@@ -1,0 +1,44 @@
+.profile-title {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Form styles */
+.profile-form {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.profile-button {
+  margin-right: 10px;
+}
+
+/* Confirmation modal styles */
+.confirmation-modal {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Semi-transparent white background */
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.confirmation-modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.confirmation-modal-body {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.confirmation-modal-button {
+  margin-right: 10px;
+}

@@ -3,3 +3,16 @@ $color: steelblue;
 .filmsphere {
   color: $color;
 }
+
+@import "~bootstrap/scss/bootstrap.scss";
+// Import other stylesheets
+
+body {
+  overflow: overlay; /* Hide the scrollbar */
+}
+
+body::-webkit-scrollbar {
+  width: 0; /* Hide the scrollbar in WebKit-based browsers */
+}
+
+// Other global styles

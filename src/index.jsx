@@ -19,5 +19,8 @@ const FilmsphereApplication = () => {
 const container = document.querySelector("#root");
 const root = createRoot(container);
 
+// Set background color to the body element
+document.body.style.backgroundColor = "rgb(30, 39, 73)";
+
 // Tells React to render your app in the root DOM element
 root.render(<FilmsphereApplication />);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import "./favorite-movies.scss";
 
 const ProfileFavoritesView = () => {
   const user = localStorage.getItem("user");
@@ -91,9 +92,9 @@ const ProfileFavoritesView = () => {
 
   return (
     <div>
-      <h2>Favorite Movies</h2>
+      <h2 className="Fav-movies-title">Favorite Movies </h2>
       {favoriteMoviesToShow.length === 0 ? (
-        <p>No favorite movies yet.</p>
+        <p className="Fav-movies-paragraph">No favorite movies yet.</p>
       ) : (
         <div>
           {favoriteMoviesToShow.map((movie) => (

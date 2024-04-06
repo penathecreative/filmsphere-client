@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FavoriteMovies from "../favorite-movies/favorite-movies";
 import { Form, Button, Modal } from "react-bootstrap";
+import "./profile-view.scss"; // Import your SCSS file
 
 const ProfileView = () => {
   const [user, setUser] = useState(null);
@@ -96,10 +97,14 @@ const ProfileView = () => {
 
   return (
     <div>
-      <h2>User Profile</h2>
-      <Form onSubmit={handleSubmit}>
+      <h2 className="profile-title">User Profile</h2>
+      <Form
+        className="profile-form"
+        onSubmit={handleSubmit}
+      >
         {/* Form fields */}
         <Button
+          className="profile-button"
           variant="primary"
           type="submit"
         >
@@ -107,6 +112,7 @@ const ProfileView = () => {
         </Button>
       </Form>
       <Button
+        className="profile-button"
         variant="danger"
         onClick={handleDeregister}
       >
@@ -119,21 +125,28 @@ const ProfileView = () => {
         />
       )}
       <Modal
+        className="confirmation-modal"
         show={showConfirmation}
         onHide={handleCloseConfirmation}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Confirm Deregistration</Modal.Title>
+          <Modal.Title className="confirmation-modal-title">
+            Confirm Deregistration
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
+        <Modal.Body className="confirmation-modal-body">
+          Are you sure you want to delete your account?
+        </Modal.Body>
         <Modal.Footer>
           <Button
+            className="profile-button"
             variant="secondary"
             onClick={handleCloseConfirmation}
           >
             Cancel
           </Button>
           <Button
+            className="profile-button"
             variant="danger"
             onClick={confirmDeregister}
           >
