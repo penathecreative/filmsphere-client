@@ -1,0 +1,44 @@
+.card-body {
+  background-color: rgb(28, 29, 32);
+  backdrop-filter: blur(80px);
+}
+
+.card-body .card-title {
+  color: rgb(250, 250, 255); /* White color for the title */
+  font-weight: bold; /* Ensure title is bold */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Metallic text shadow */
+}
+
+.card-text {
+  color: rgb(250, 250, 255); /* White color for the text */
+}
+
+/* Base styles */
+.btn.btn-link {
+  color: rgb(30, 39, 73); /* Dark blue color for the link */
+  text-decoration: none; /* Remove underline */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+button.btn.btn-link:hover {
+  color: rgb(48, 52, 63); /* Darker blue color on hover */
+  text-decoration: none; /* Ensure no underline on hover */
+  transform: scale(1.1); /* Scale up slightly on hover */
+}
+
+/* Additional styles for focus state */
+button.btn.btn-link:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+/* Metallic accent for link */
+.card-body .btn.btn-link {
+  color: rgb(220, 220, 220); /* Light gray color for the link */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Metallic underline */
+}
+
+/* Hover effect for metallic accent */
+.card-body .btn.btn-link:hover {
+  color: rgb(200, 200, 200); /* Slightly darker gray on hover */
+}

@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import "./movie-view.scss";
+import { Button, Col, Row } from "react-bootstrap"; // Import Col and Row from react-bootstrap
 
 import PropTypes from "prop-types";
 
@@ -11,33 +12,39 @@ export const MovieView = ({ movies }) => {
 
   const movie = movies.find((b) => b._id === movieId);
   return (
-    <div>
+    <div className="movie-container">
       <div>
         <img
+          className="movie-image"
           src={movie.image}
           alt="movie image"
-          style={{ width: "300px", height: "450px" }}
         />
       </div>
-      <div>
-        <span>Title: </span>
-        <span>{movie.Title || "No Title"}</span>
+      <div className="movie-details">
+        <div className="movie-info">
+          <span className="info-label">Title: </span>
+          <span className="info-text">{movie.Title || "No Title"}</span>
+        </div>
+        <div className="movie-info">
+          <span className="info-label">Description: </span>
+          <span className="info-text">
+            {movie.Description || "No Description"}
+          </span>
+        </div>
+        <div className="movie-info">
+          <span className="info-label">Genre: </span>
+          <span className="info-text">{movie.Genre || "No Genre"}</span>
+        </div>
+        <div className="movie-info">
+          <span className="info-label">Director: </span>
+          <span className="info-text">{movie.Director || "No Director"}</span>
+        </div>
       </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.Description || "No Description"}</span>
+      <div className="button-container">
+        <Link to={`/`}>
+          <button className="back-button">Back</button>
+        </Link>
       </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.Genre || "No Genre"}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.Director || "No Director"}</span>
-      </div>
-      <Link to={`/`}>
-        <button className="back-button">Back</button>
-      </Link>
     </div>
   );
 };
