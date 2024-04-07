@@ -1,20 +1,40 @@
-# Filmsphere App
+# MovieSphere Web Application
 
-Welcome to the Filmshpere Movie App project! This is a full-stack web application for exploring and managing your favorite movies.
+Welcome to MovieSphere! This is a web application where users can explore a collection of movies, view details about each movie, sign up, log in, and manage their profiles.
 
-## Overview
+## Table of Contents
 
-Filmshpere is a web application that allows users to explore a collection of movies, manage their favorite movies, and update their user profile.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Setup](#setup)
+- [Dependencies](#dependencies)
+- [Usage](#usage)
+- [License](#license)
+
+## Introduction
+
+MovieSphere is a React-based web application that allows users to browse through a curated collection of movies. Users can register for an account, log in, view details about each movie, and update their profiles.
 
 ## Features
 
-List the key features of your movie app. For example:
+- **User Authentication**: Users can sign up for an account or log in if they already have one.
+- **Movie Browsing**: Users can explore a list of movies with their details like title, genre, description, and director.
+- **Movie Details**: Users can view detailed information about each movie by clicking on it.
+- **Profile Management**: Registered users can manage their profiles, including updating personal information.
 
-- Browse a list of movies
-- View detailed information about each movie
-- Add movies to your favorites
-- User authentication and authorization
-- ...
+## Setup
+
+1. Clone this repository to your local machine.
+2. Install the necessary dependencies using `npm install`.
+3. Run the application using `npm start`.
+4. Open your browser and navigate to `http://localhost:3000` to access MovieSphere.
+
+## Dependencies
+
+- React: JavaScript library for building user interfaces.
+- React Router DOM: Declarative routing for React applications.
+- React Bootstrap: Bootstrap components built with React.
+- Heroku: Cloud application platform for deployment.
 
 ## Tech Stack
 
@@ -25,15 +45,12 @@ Outline the technologies and frameworks used in your project.
 - Authentication: JWT (JSON Web Tokens)
 - Database: Mongo DB Atlas
 
-## Setup
+## Usage
 
-Provide instructions on how to set up the development environment. For example:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/penathecreative/movie-app.git
-   cd movie-app
-   ```
+1. **Sign Up or Log In**: If you are a new user, sign up for an account using the provided form. If you already have an account, log in using your credentials.
+2. **Browse Movies**: Explore the list of available movies on the home page. Click on a movie card to view its details.
+3. **View Movie Details**: Click on a movie card to view detailed information about that movie, including its title, genre, description, and director.
+4. **Manage Profile**: Registered users can access their profile page to update personal information such as username, password, and email.
 
 ## API Endpoints
 
