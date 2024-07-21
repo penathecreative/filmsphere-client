@@ -7337,18 +7337,6 @@ button.btn.btn-link:focus {
   color: #fff;
 }
 
-.Fav-movies-title {
-  color: #fff;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.Fav-movies-paragraph {
-  color: #fff;
-}
-
 .profile-title {
   color: #fff;
   margin-bottom: 10px;
@@ -7384,6 +7372,18 @@ button.btn.btn-link:focus {
 
 .confirmation-modal-button {
   margin-right: 10px;
+}
+
+.Fav-movies-title {
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.Fav-movies-paragraph {
+  color: #fff;
 }
 
 :root, [data-bs-theme="light"] {
