@@ -125,6 +125,7 @@ ProfileFavoritesView.propTypes = {
     Username: PropTypes.string.isRequired,
   }).isRequired,
   token: PropTypes.string.isRequired,
+  handleToggleFavorite: PropTypes.func.isRequired,
 };
 
 export default ProfileFavoritesView;

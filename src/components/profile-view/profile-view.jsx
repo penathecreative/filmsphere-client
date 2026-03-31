@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FavoriteMovies from "../favorite-movies/favorite-movies";
 import { Form, Button, Modal } from "react-bootstrap";
-import "./profile-view.scss"; // Import your SCSS file
+import "./profile-view.scss";
 
 const ProfileView = () => {
   const [user, setUser] = useState(null);
@@ -95,6 +95,44 @@ const ProfileView = () => {
     setShowConfirmation(false);
   };
 
+  // Function to handle marking/unmarking the movie as favorite
+  const handleToggleFavorite = async (movieId) => {
+    try {
+      // Check if the movie is already a favorite
+      const isFavorite = user.FavoriteMovies.includes(movieId);
+      // Determine the method based on whether the movie is already a favorite or not
+      const method = isFavorite ? "DELETE" : "POST";
+
+      console.log(
+        `Toggling favorite status of movie ${movieId}, isFavorite: ${isFavorite}`
+      );
+
+      // Send a request to the backend to toggle the favorite status of the movie
+      const response = await fetch(
+        `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}/movies/${movieId}`,
+        {
+          method: method, // Use POST to add, DELETE to remove from favorites
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`Failed to ${isFavorite ? "remove" : "add"} favorite`);
+      }
+
+      console.log(`Favorite status of movie ${movieId} toggled successfully`);
+
+      // Refresh user data after updating favorites
+      fetchUserData();
+
+      // Log the updated user data to see if favoriteMovies array is updated
+      console.log("Updated user data:", user);
+    } catch (error) {
+      console.error("Error toggling favorite status:", error);
+    }
+  };
+
   return (
     <div>
       <h2 className="profile-title">User Profile</h2>
@@ -122,6 +160,7 @@ const ProfileView = () => {
         <FavoriteMovies
           user={user}
           movies={user.Movies}
+          handleToggleFavorite={handleToggleFavorite}
         />
       )}
       <Modal

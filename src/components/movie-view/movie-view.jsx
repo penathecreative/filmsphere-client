@@ -1,16 +1,23 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { useState } from "react"; // Import useState
 import "./movie-view.scss";
-import { Button, Col, Row } from "react-bootstrap"; // Import Col and Row from react-bootstrap
-
+import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
+  const [isFavorite, setIsFavorite] = useState(false); // State to track if the movie is a favorite
 
   // Find the movie with the specified movieId
-
   const movie = movies.find((b) => b._id === movieId);
+
+  // Function to handle marking/unmarking the movie as favorite
+  const handleToggleFavorite = () => {
+    setIsFavorite(!isFavorite); // Toggle the favorite state
+    // You can send a request to your backend here to update the user's favorites list
+  };
+
   return (
     <div className="movie-container">
       <div>
@@ -39,6 +46,15 @@ export const MovieView = ({ movies }) => {
           <span className="info-label">Director: </span>
           <span className="info-text">{movie.Director || "No Director"}</span>
         </div>
+      </div>
+      {/* Button to toggle favorite status */}
+      <div className="button-container">
+        <Button
+          variant={isFavorite ? "danger" : "primary"}
+          onClick={handleToggleFavorite}
+        >
+          {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+        </Button>
       </div>
       <div className="button-container">
         <Link to={`/`}>
