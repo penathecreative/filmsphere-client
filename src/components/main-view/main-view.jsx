@@ -22,7 +22,7 @@ export const MainView = () => {
     if (!token) {
       return;
     }
-    fetch("https://filmsphere-5e594b2ffc50.herokuapp.com/movies", {
+    fetch("https://movie-api-qlfb.onrender.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())

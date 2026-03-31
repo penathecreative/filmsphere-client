@@ -17,12 +17,12 @@ const ProfileView = () => {
     const fetchUserData = async () => {
       try {
         const response = await fetch(
-          "https://filmsphere-5e594b2ffc50.herokuapp.com/users",
+          "https://movie-api-qlfb.onrender.com/users",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
         if (!response.ok) {
           throw new Error("Failed to fetch user data");
@@ -45,7 +45,7 @@ const ProfileView = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}`,
+        `https://movie-api-qlfb.onrender.com/users/${user.Username}`,
         {
           method: "PUT",
           headers: {
@@ -53,7 +53,7 @@ const ProfileView = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           body: JSON.stringify(newUserData),
-        }
+        },
       );
       if (!response.ok) {
         throw new Error("Failed to update user data");
@@ -71,13 +71,13 @@ const ProfileView = () => {
   const confirmDeregister = async () => {
     try {
       const response = await fetch(
-        `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}`,
+        `https://movie-api-qlfb.onrender.com/users/${user.Username}`,
         {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }
+        },
       );
       if (!response.ok) {
         throw new Error("Failed to deregister user");

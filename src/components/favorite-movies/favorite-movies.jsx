@@ -14,12 +14,12 @@ const ProfileFavoritesView = () => {
       try {
         // Fetch the user's favorite movies
         const favoriteMoviesResponse = await fetch(
-          `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}`,
+          `https://movie-api-qlfb.onrender.com/users/${user.Username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          }
+          },
         );
         if (!favoriteMoviesResponse.ok) {
           throw new Error("Failed to fetch favorite movies");
@@ -29,10 +29,10 @@ const ProfileFavoritesView = () => {
 
         // Fetch all movies
         const moviesResponse = await fetch(
-          "https://filmsphere-5e594b2ffc50.herokuapp.com/movies",
+          "https://movie-api-qlfb.onrender.com/movies",
           {
             headers: { Authorization: `Bearer ${token}` },
-          }
+          },
         );
         if (!moviesResponse.ok) {
           throw new Error("Failed to fetch movies");
@@ -62,7 +62,7 @@ const ProfileFavoritesView = () => {
     try {
       const isFavorite = favoriteMovies.includes(movieId);
       const method = isFavorite ? "DELETE" : "POST";
-      const url = `https://filmsphere-5e594b2ffc50.herokuapp.com/users/${user.Username}/movies/${movieId}`;
+      const url = `https://movie-api-qlfb.onrender.com/users/${user.Username}/movies/${movieId}`;
 
       const response = await fetch(url, {
         method: method,
@@ -81,13 +81,13 @@ const ProfileFavoritesView = () => {
     } catch (error) {
       console.error(
         `Error toggling favorite for movie with ID ${movieId}:`,
-        error
+        error,
       );
     }
   };
 
   const favoriteMoviesToShow = movies.filter((movie) =>
-    favoriteMovies.includes(movie._id)
+    favoriteMovies.includes(movie._id),
   );
 
   return (

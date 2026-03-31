@@ -16,7 +16,7 @@ export const LoginView = ({ onLoggedIn }) => {
       Password: password,
     };
 
-    fetch("https://filmsphere-5e594b2ffc50.herokuapp.com/login", {
+    fetch("https://movie-api-qlfb.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
